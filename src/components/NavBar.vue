@@ -4,9 +4,9 @@
             <img loading="eager" src="../assets/uni.svg" class="logo uni" alt="Uni logo" />
         </router-link>
         <router-link to="/home">Home</router-link>
-        <router-link to="/unijobs">UniJob</router-link>
-        <router-link to="/uniphds">Phd</router-link>
-        <router-link to="/unirgs">Research Group</router-link>
+        <router-link to="/unijob">UniJob</router-link>
+        <router-link to="/uniphd">Phd</router-link>
+        <router-link to="/unirg">Research Group</router-link>
         <router-link to="/about">About</router-link>
         <router-link class="nav-login" to="/login">Login</router-link>
     </nav>
@@ -16,7 +16,7 @@
 
 const redirect = (e: MouseEvent) => {
     const to = (e.target as HTMLElement).getAttribute('href');
-    if (to === '/uniphds' || to === '/unirgs' || to === '/login') {
+    if (to === '/uniphd' || to === '/unirg' || to === '/login') {
         alert('This page is not available yet');
     }
 };

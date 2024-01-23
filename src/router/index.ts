@@ -2,7 +2,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue' // Import your Home component
 import About from '../pages/About.vue' // Import your About component
-
+import NotFound from '../pages/NotFound.vue' // Import your NotFound component
+import UniJob from '../pages/UniJob.vue'
 const routes = [
   {
     path: '/home',
@@ -14,6 +15,15 @@ const routes = [
     name: 'About',
     component: About // Associate /about with the About component
   },
+  { path: '/', redirect: '/home' },
+  { path: '/unijob', 
+    name: 'UniJob',
+    component: UniJob 
+  },
+  { path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound 
+  }
   // other routes...
 ]
 

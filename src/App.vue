@@ -4,7 +4,7 @@ import NavBar from './components/NavBar.vue'
 
 <template>
   <NavBar class="navbar" />
-  <router-view />
+  <router-view class="page-layout" />
 </template>
 
 <style scoped>
@@ -29,5 +29,10 @@ import NavBar from './components/NavBar.vue'
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
