@@ -24,20 +24,23 @@
         </div>
         <!-- TODO: tweak content -->
         <div class="card-layout" @mousemove="handleMouseMove">
-            <Card title="UniJob" content="The website collects jobs from some top-level universities (mainly based in Europe)."
-                ref="el1" style="background-size: 200% 200%; background-position: var(--mouse-x) var(--mouse-y); background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), #00DC82 25%, transparent 35%);"/>
-            <Card title="PhD" content="The website collects phd info from some top-level universities (mainly based in Europe)."
-                ref="el2" style="background-size: 200% 200%; background-position: var(--mouse-x) var(--mouse-y); background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), #00DC82 25%, transparent 35%);"/>
-            <Card title="Research Group" content="The website collects research group info from some top-level universities (mainly based in Europe)."
-                ref="el3" style="background-size: 200% 200%; background-position: var(--mouse-x) var(--mouse-y); background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), #00DC82 25%, transparent 35%);"/>
+            <Card @click="router.push('/unijob')" title="UniJob" content="The website collects jobs from some top-level universities (mainly based in Europe)."
+                ref="el1" class="card-style"/>
+            <Card @click="router.push('/uniphd')" title="PhD" content="The website collects phd info from some top-level universities (mainly based in Europe)."
+                ref="el2" class="card-style"/>
+            <Card @click="router.push('/unirg')" title="Research Group" content="The website collects research group info from some top-level universities (mainly based in Europe)."
+                ref="el3" class="card-style"/>
         </div>
 
     </div>
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { onMounted, onUnmounted, reactive, ref, toRefs } from 'vue';
 import Card from '../components/Card.vue';
+
+const router = useRouter();
 
 const state = reactive({
   el1: ref(),
@@ -67,6 +70,16 @@ const handleMouseMove = (e: MouseEvent) => {
 onMounted(() => {
     document.title = 'The Website for Uni Opportunities';
     document.addEventListener('mousemove', handleMouseMove); 
+
+    // const scrollDiv = document.createElement('div');
+    // scrollDiv.style.cssText = 'width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;';
+    // document.body.appendChild(scrollDiv);
+    // const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    // document.body.removeChild(scrollDiv);
+    // const appElement = document.getElementById('app');
+    // if (appElement) {
+    //     appElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+    // }
 });
 
 onUnmounted(() => {
@@ -76,6 +89,12 @@ onUnmounted(() => {
 
 <style scoped>
 /* Your styles go here */
+
+.card-style {
+    background-size: 200% 200%;
+    background-position: var(--mouse-x) var(--mouse-y);
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), #00DC82 25%, transparent 35%);
+}
 
 .card:hover {
     border: #00DC82 0.5px solid;
